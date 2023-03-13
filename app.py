@@ -1,10 +1,10 @@
 from flask import Flask
-app = Flask(__name__)
+fapp = Flask(__name__)
 
-@app.route('/')
+@fapp.route('/')
 def hello_world():
     return 'GreyMatters'
 
 
 if __name__ == "__main__":
-    app.run()
+    fapp.run()

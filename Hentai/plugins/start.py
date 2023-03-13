@@ -90,8 +90,10 @@ async def start(event):
         text = "#NEW_USER #ORDINARY\n"
         text += f"**User ID** : `{event.sender_id}`\n"
         text += f"[User](tg://user?id={event.sender_id})\n"
-        await tsoheru.send_message(LOG_CHANNEL, text)
-    
+        try:
+            await tsoheru.send_message(LOG_CHANNEL, text)
+        except:
+            print("Error in LOGGING")
     #CHECK IF USER START IS FOR URL---------
     if ' ' in event.message.message:
         try:

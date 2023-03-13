@@ -1,1 +1,1 @@
-gunicorn app:app & python3 -m Hentai
+gunicorn app:fapp & python3 -m Hentai

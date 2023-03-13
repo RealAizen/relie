@@ -6,8 +6,6 @@ from pathlib import Path
 import logging
 import importlib
 from Hentai import tsoheru, psoheru
-from aiohttp import web
-from plugins import web_server
 
 #logging
 logging.basicConfig(
@@ -34,12 +32,6 @@ for name in files:
         patt = Path(a.name)
         plugin_name = patt.stem
         load_module(plugin_name.replace(".py", ""))
-
-#web-response
-webapp = web.AppRunner(await web_server())
-await webapp.setup()
-bind_address = "0.0.0.0"
-await web.TCPSite(webapp, bind_address, "8080").start()
 
 psoheru.start()
 print("Bot Started")    

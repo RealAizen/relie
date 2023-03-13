@@ -22,7 +22,7 @@ async def updatelink(event):
 async def link_custom(event): 
     if Users.is_sudo(event.sender_id) is False:
         return
-    link_types = ["anime", "hentai", "brazzers", "japanese", "onlyfans", "desi"]
+    link_types = ["anime", "hentai", "brazzers", "japanese", "onlyfans", "desi", "movies"]
     try:
         msg = event.message.message.split(' ', 3)
         channel = msg[1].strip().lower()

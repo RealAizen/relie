@@ -65,6 +65,7 @@ class Users:
              'desi': None, 
              'hentai': None, 
              'anime': None,
+             'movies': None,
              'premium':False}
             )
         return True 
@@ -95,10 +96,15 @@ class Users:
             japanese_expire_date = i['japanese']
             anime_expire_date = i['anime']
             hentai_expire_date = i['hentai']
+            movies_expire_date = i['movies']
+            
             textt = f"[{id}](tg://user?id={id}) -"
             if not platinum_expire_date==None:
                 expiring = str(Generate.expirein(platinum_expire_date)).split(',', 1)[0].strip()
                 textt+= (" Platinum " + expiring + ",")
+            if not movies_expire_date==None:
+                expiring = str(Generate.expirein(movies_expire_date)).split(',', 1)[0].strip()
+                textt+= (" Brazzers " + expiring + ",")
             if not brazzers_expire_date==None:
                 expiring = str(Generate.expirein(brazzers_expire_date)).split(',', 1)[0].strip()
                 textt+= (" Brazzers " + expiring + ",")

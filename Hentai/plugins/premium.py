@@ -46,7 +46,7 @@ async def profile(event):
         sender = await event.get_sender()
         user_id = event.sender_id
         profile_info = f"**Your Name**: `{sender.first_name}`\n**Your ID**: `{user_id}`\n\n"
-        TYPES = ["anime", "hentai", "platinum", "brazzers", "japanese", "onlyfans", "desi"]
+        TYPES = ["anime", "hentai", "platinum", "brazzers", "japanese", "onlyfans", "desi", "movies"]
         subs = []
         for typ in TYPES:
             check_premium = Users.check_premium(user_id, typ)

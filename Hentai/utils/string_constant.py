@@ -18,6 +18,7 @@ PRICING_TEXT = """
 
  ╔• **Anime ❄️** - 20Rs [1 Month]
  ╠• **Hentai 🔞** - 30Rs [1 Month]
+ ╠• **Movies 📽️** - 30Rs [1 Month]
  ╠• **Onlyfans & Leak Mms🔞** - 30Rs [15 Days], 50Rs [30Days]
  ╠• **Brazzers & Pornhub🔞** - 20Rs [15 Days], 35Rs [30 Days]
  ╠• **Japanese Porn🔞** - 20Rs [15 Days], 35Rs [30 Days]

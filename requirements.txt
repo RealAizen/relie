@@ -4,3 +4,4 @@ tgcrypto
 requests 
 dnspython
 pymongo
+aiohttp

@@ -104,7 +104,7 @@ class Users:
                 textt+= (" Platinum " + expiring + ",")
             if not movies_expire_date==None:
                 expiring = str(Generate.expirein(movies_expire_date)).split(',', 1)[0].strip()
-                textt+= (" Brazzers " + expiring + ",")
+                textt+= (" Movies " + expiring + ",")
             if not brazzers_expire_date==None:
                 expiring = str(Generate.expirein(brazzers_expire_date)).split(',', 1)[0].strip()
                 textt+= (" Brazzers " + expiring + ",")

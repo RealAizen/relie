@@ -121,8 +121,7 @@ async def start(event):
                 await event.reply('Your Premium Expired Kindly Renew Your Subscription. & To Continue Without Renewal Open Link Again')
                 if platinum is True:
                     Users.remium(event.sender_id, "platinum")
-                if platinum is False:
-                    Users.remium(event.sender_id, channel)
+                Users.remium(event.sender_id, channel)
                 return
         else:
             link = PremiumCustom.find(id, False)

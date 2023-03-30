@@ -1,8 +1,8 @@
 SPECIAL_TEXT = """
-<u>💸 Here Are The Perks for Platinum Membership💸</u>
+**💸 Here Are The Perks for Platinum Membership💸**
 
 ╭────────────────
-├ Quantity Content Will Be Given Hand Picked By Admins For Platinum Members 
+├ Quality Content Will Be Given Hand Picked By Admins For Platinum Members 
 
 ├ This Subscription comes with All Types of Subscription Pre Availed on this Bot
 
@@ -15,9 +15,9 @@ SPECIAL_TEXT = """
 ├ You Will Be Special and Recognised Member of Our Network 
 ╰─────────────────
 
-<b>Only at ✨ 750Rs/Month!!!</b>
+**Only at ✨ `750Rs/Month!!!`**
 
-Note:- <i>We Have Limited Seats for this Subscription so Hurry!</i>
+Note:- We Have Limited Seats for this Subscription so Hurry!
 """
 
 
@@ -25,33 +25,33 @@ PRICING_TEXT = """
 **💸 Pricing List**
 ╭────────────────
 ├ Anime, Movies & Web Series 
-├ 150 Rs / Month 
+├ 99 Rs / Month 
 ╰─────────────────
 
 **🔞 18 + Network List 🔞**
 ╭────────────────
 ├ Hentai 
-├ 80 Rs/30 Days 
+├ 69 Rs/30 Days 
 ╰─────────────────
 ╭─────────────────
 ├ Western Porn
-├ 80 Rs/15 Days | 100 Rs/30 Days
+├ 40 Rs/15 Days | 69 Rs/28 Days
 ╰─────────────────
 ╭─────────────────
 ├ Japanese Porn
-├ 80 Rs/15 Days | 100 Rs/30 Days
+├ 40 Rs/15 Days | 69 Rs/28 Days
 ╰─────────────────
 ╭─────────────────
 ├ Desi Viral Leaks & Mms
-├ 80 Rs/15 Days | 100 Rs/30 Days
+├ 40 Rs/15 Days | 69 Rs/28 Days
 ╰─────────────────
 ╭─────────────────
 ├ OnlyFans Exclusive Packs
-├ 150 Rs/15 Days | 220 Rs/30 Days
+├ 99 Rs/15 Days | 169 Rs/30 Days
 ╰─────────────────
 ╭──⭐All In One⭐────────
 ├ Buy All Normal Premium At Once In
-├ 500 Rs / Month 
+├ 269 Rs / Month 
 ╰─────────────────
 
 🌟 Pay Via UPI - `realaizen@kotak`
@@ -76,6 +76,7 @@ PREMIUM_TEXT = '''
 ├ Secret Group Link Will Be Given 
 ├ We Will Sent More Videos To Group 
 ╰─────────────────
+Wanna buy?
 
 Normal Premium Prices & Platinum Members Prices Given Bellow 😊
 

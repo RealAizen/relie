@@ -117,11 +117,13 @@ async def start(event):
                 btn = [[Button.url('Link', url=link)]]
                 await event.reply(f"Total Clicks: `{PremiumCustom.total_count(id)}` "+'**Check Below Button To Download**', buttons=btn)
             else: 
-                link = PremiumCustom.find(id, False)    
+                link = PremiumCustom.find(id, False)
+                x = Users.remium(event.sender_id, channel.strip())
+                if not x==True:
+                    print(f"cannot remium {event.sender_id} for {channel}")
                 await event.reply('Your Premium Expired Kindly Renew Your Subscription. & To Continue Without Renewal Open Link Again')
                 if platinum is True:
                     Users.remium(event.sender_id, "platinum")
-                Users.remium(event.sender_id, channel)
                 return
         else:
             link = PremiumCustom.find(id, False)

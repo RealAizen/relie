@@ -1,6 +1,7 @@
 pyrogram
 telethon
 tgcrypto
+bs4
 requests 
 dnspython
 pymongo

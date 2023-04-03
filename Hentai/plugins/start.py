@@ -103,7 +103,7 @@ async def start(event):
             await event.reply("Invalid URL")
             return
         #FORCE SUBSCRIPTION-------------
-        check_joined_or_not = await check_join(event.sender_id)
+        check_joined_or_not = True
         if check_joined_or_not is False: 
             button = [[Button.url('Join Channel', url=f'http://t.me/Anime_Collectors'), Button.url('Download', url=f"https://t.me/{BOT_USERNAME}?start=custom_{channel}_{id}")]]
             await event.reply('To continue download, please join the channel before clicking the download button below', buttons=button)

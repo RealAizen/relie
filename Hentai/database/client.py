@@ -165,6 +165,8 @@ class Users:
     def is_sudo(userid):
         if int(userid) in [720518864, 669641125]:
             return True
+        else:
+            return False
     def is_reg(userid):
         x = users.find_one({'user':int(userid)})    
         if x is None:

@@ -15,7 +15,7 @@ SPECIAL_TEXT = """
 ├ You Will Be Special and Recognised Member of Our Network 
 ╰─────────────────
 
-**Only at ✨ `469Rs/Month!!!`**
+**Only at ✨ `250Rs/Month!!!`**
 
 Note:- We Have Limited Seats for this Subscription so Hurry!
 """
@@ -51,7 +51,7 @@ PRICING_TEXT = """
 ╰─────────────────
 ╭──⭐All In One⭐────────
 ├ Buy All Normal Premium At Once In
-├ 269 Rs / Month 
+├ 169 Rs / Month 
 ╰─────────────────
 
 🌟 Pay Via UPI - `realaizen@kotak`

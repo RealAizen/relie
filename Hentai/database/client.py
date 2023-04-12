@@ -163,7 +163,7 @@ class Users:
         users.update_one({'user':int(userid)}, {"$set":{'is_sudo':False}})        
         return True
     def is_sudo(userid):
-        if int(userid) in [720518864, 669641125]:
+        if int(userid) in [720518864, 669641125, 5459039279]:
             return True
         else:
             return False

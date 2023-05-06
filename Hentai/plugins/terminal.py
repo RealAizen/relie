@@ -2,7 +2,17 @@ from Hentai import tsoheru
 from Hentai.database.client import Users 
 from telethon import events 
 
-import sys, traceback, io, asyncio
+import sys, traceback, io, asyncio, os
+
+
+@tsoheru.on(events.NewMessage(incoming=True, pattern="/update"))     
+async def update(event):
+    if Users.is_sudo(event.sender_id) is False:
+        return
+    msg = await event.reply_text("Pulling changes with latest commits...")
+    os.system("git pull")
+    LOGGER(__name__).info("Bot Updated with latest commits. Restarting now..")
+    os.execl(sys.executable, sys.executable, "-m", "Hentai")
 
 @tsoheru.on(events.NewMessage(incoming=True, pattern="/eval"))     
 async def eval(event):

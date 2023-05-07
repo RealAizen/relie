@@ -15,7 +15,7 @@ SPECIAL_TEXT = """
 ├ You Will Be Special and Recognised Member of Our Network 
 ╰─────────────────
 
-**Only at ✨ *485*`399Rs/Month!!!`**
+**Only at ✨ `399Rs/Month!!!`**
 
 Note:- We Have Limited Seats for this Subscription so Hurry!
 """

@@ -7,7 +7,7 @@ from Hentai.database.client import Users, PremiumCustom
 def id_generator(size=6, chars= string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
 
-@tsoheru.on(events.NewMessage(incoming=True, pattern="/update"))     
+@tsoheru.on(events.NewMessage(incoming=True, pattern="/updatelink"))     
 async def updatelink(event): 
     if Users.is_sudo(event.sender_id) is False:
         return 

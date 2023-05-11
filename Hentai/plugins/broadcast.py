@@ -68,6 +68,14 @@ async def checkuser(bot:Client, message:Message):
             continue
     await message.reply(subscriptions)
 
+"""
+@Client.on_message(filters.command('bcast', '/'))
+async def broadcast_del(bot:Client, message:Message):
+    if message.from_user.id not in [1135084367, 720518864]:
+        return
+"""
+
+
 
 @Client.on_message(filters.command('upl', '/'))
 async def upload_idk(bot:Client, message:Message):

@@ -11,23 +11,23 @@ clientdb = MongoClient(DATABASE_URL)
 typedb = clientdb['SoheruGroup']
 users = typedb['userstwo']
 data = typedb['custom']
-banned = typedb['banned']
+bannedb = typedb['banned']
 
 def ban(userid):
     if Users.is_sudo(userid) is True:
         return False
-    banned.insert_one({'user':int(userid)})
+    bannedb.insert_one({'user':int(userid)})
     return True 
 
 def unban(userid):
     if Users.is_sudo(userid) is True:
         return False
-    banned.delete_many({'user':int(userid)})
+    bannedb.delete_many({'user':int(userid)})
     return True 
 
 def banned():
     x = []
-    y = banned.find()  
+    y = bannedb.find()  
     for a in y:
         x.append(a['user'])
     return x

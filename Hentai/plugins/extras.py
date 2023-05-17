@@ -35,7 +35,7 @@ async def unban(_, message):
     if Users.is_sudo(user_id) is True:
         return
     uwu = unban(user_id)
-    if uwu == True
+    if uwu == True:
         await message.reply_text("Ok.", quote=True)
     text = f"#UNBANNED"
     text += f"\n\nID - `{user_id}`"

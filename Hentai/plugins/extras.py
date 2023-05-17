@@ -39,4 +39,4 @@ async def unban(_, message):
         await message.reply_text("Ok.", quote=True)
     text = f"#UNBANNED"
     text += f"\n\nID - `{user_id}`"
-    await app.send_message(LOG_CHANNEL, text
+    await app.send_message(LOG_CHANNEL, text)

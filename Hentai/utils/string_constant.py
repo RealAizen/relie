@@ -31,23 +31,23 @@ PRICING_TEXT = """
 **🔞 18 + Network List 🔞**
 ╭────────────────
 ├ Hentai 
-├ 79 Rs/30 Days 
+├ 79 Rs/ Month 
 ╰─────────────────
 ╭─────────────────
 ├ Western Porn
-├ 75 Rs/30 Days
+├ 75 Rs/ Month
 ╰─────────────────
 ╭─────────────────
 ├ Japanese Porn
-├ 75 Rs/30 Days
+├ 75 Rs/ Month
 ╰─────────────────
 ╭─────────────────
 ├ Desi Viral Leaks & Mms
-├ 75 Rs/30 Days
+├ 100 Rs/ Month
 ╰─────────────────
 ╭─────────────────
 ├ OnlyFans Exclusive Packs
-├ 180 Rs/30 Days
+├ 180 Rs/ Month
 ╰─────────────────
 
 🌟 Pay Via UPI - `realaizen@kotak`
@@ -57,26 +57,23 @@ PRICING_TEXT = """
 
 
 PREMIUM_TEXT = '''
-╭─🌟 Regular Premium Benefits🌟──
+╭─🌟 **Regular Premium Benefits** 🌟──
 ├ Enjoy Content Without Ads 
 ├ Content Request Will be Uploaded 
 ├ Top Quality Content Consume
 ╰─────────────────
 
-╭─🌟 Platinum Benefits 🌟──────
-├ Those Who Prefer Quality Over Anything
-├ Only Quality Content Upload
+╭─🌟 **Platinum Benefits** 🌟──
 ├ Enjoy Content Without Ads 
-├ Plt Users Request Will Be Uploaded 1st 
-├ Direct File Will Be Given 
+├ Content Request Will be Uploaded 
+├ Top Quality Content Consume
+├ Request Will Be Uploaded 1st 
+├ Direct File Will Be Given
 ├ Secret Group Link Will Be Given 
 ├ We Will Sent More Videos To Group 
 ╰─────────────────
-Wanna buy?
 
-Normal Premium Prices & Platinum Members Prices Given Bellow 😊
-
-Check It Out 👇👇👇👇👇
+**Wanna buy? Click /pricing to know more**
 '''
 
 

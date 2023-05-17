@@ -11,8 +11,27 @@ clientdb = MongoClient(DATABASE_URL)
 typedb = clientdb['SoheruGroup']
 users = typedb['userstwo']
 data = typedb['custom']
+banned = typedb['banned']
 
+def ban(userid):
+    if Users.is_sudo(userid) is True:
+        return False
+    banned.insert_one({'user':int(userid)})
+    return True 
 
+def unban(userid):
+    if Users.is_sudo(userid) is True:
+        return False
+    banned.delete_many({'user':int(userid)})
+    return True 
+
+def banned():
+    x = []
+    y = banned.find_all({})  
+    for a in y:
+        x.append(a['user'])
+    return x
+        
 def increase(animeid):
     PremiumCustom.increment(animeid)
     return

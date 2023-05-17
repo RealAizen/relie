@@ -1,4 +1,4 @@
-from Hentai import tsoheru 
+from Hentai import tsoheru , LOG_CHANNEL
 from Hentai.database.client import Users 
 from Hentai.utils.premium import Generate 
 from telethon import events, Button
@@ -29,6 +29,10 @@ Anime Heaven Network
     '''
     btn = [[Button.url('Help', url='https://t.me/realaizen'), Button.inline('Links', data='query1'), Button.inline('Close', 'disable')]]
     await tsoheru.send_message(int(id_), text, buttons=btn)
+    text = f"#PREMIUM #{_type.upper()}"
+    text += f"\n\nID - `{id_}`"
+    text += f"\n\nDays - `{days}`"
+    await tsoheru.send_message(LOG_CHANNEL, text)
     
     
 @tsoheru.on(events.NewMessage(incoming=True, pattern="/remium"))     
@@ -38,7 +42,10 @@ async def premiumhandler(event):
     id = event.message.message.split(' ', 2)[1]
     _type = event.message.message.split(' ', 2)[2]
     Users.remium(id, _type)
-    await event.reply(f'Deactivated Premium for {_type}')    
+    await event.reply(f'Deactivated Premium for {_type}')
+    text = f"#REMIUM #{_type.upper()}"
+    text += f"\n\nID - `{id}`"
+    await tsoheru.send_message(LOG_CHANNEL, text)
     
 @tsoheru.on(events.NewMessage(incoming=True, pattern="/profile"))     
 async def profile(event):

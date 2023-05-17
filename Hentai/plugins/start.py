@@ -2,7 +2,7 @@ import requests
 from os import listdir
 from random import choice 
 from Hentai import OWNER_ID, tsoheru, LOG_CHANNEL, DEV_USERS, BOT_USERNAME, NETWORK_CHANNELS_LINK, FSUB_CHANNEL_ID
-from Hentai.database.client import Users, PremiumCustom, users
+from Hentai.database.client import Users, PremiumCustom, users, banned
 from Hentai.utils.premium import Generate
 from Hentai.utils.string_constant import *
 from telethon import events, Button
@@ -80,10 +80,18 @@ async def makesudo(event):
     Users.promote(id_)
     await event.reply('Kay')
 
+@tsoheru.on(events.NewMessage(incoming=True, pattern="/pricing"))
+async def pricing(event):
+    if event.sender_id in banned():
+        return await event.reply("F*ck Off!")
+    text = PRICING_TEXT
+    buttons = buttons_prem
+    await event.reply(text, buttons=buttons)
 
 @tsoheru.on(events.NewMessage(incoming=True, pattern="/start"))
 async def start(event):
-    
+    if event.sender_id in banned():
+        return await event.reply("F*ck Off!")
     #LOG USERS TO CHANNEL-------------
     if Users.is_reg(event.sender_id) is False:
         Users.add(event.sender_id)
@@ -91,7 +99,8 @@ async def start(event):
         text += f"**User ID** : `{event.sender_id}`\n"
         text += f"[User](tg://user?id={event.sender_id})\n"
         try:
-            await tsoheru.send_message(LOG_CHANNEL, text)
+            #await tsoheru.send_message(LOG_CHANNEL, text)
+            pass
         except:
             print("Error in LOGGING")
     #CHECK IF USER START IS FOR URL---------

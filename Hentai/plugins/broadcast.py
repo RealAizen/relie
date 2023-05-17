@@ -1,5 +1,5 @@
-import asyncio
-from Hentai import psoheru as Client 
+import asyncio, json
+from Hentai import psoheru as Client, LOG_CHANNEL
 from pyrogram import filters 
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from Hentai.database.client import Users
@@ -14,6 +14,9 @@ async def bot_broadcast(bot:Client, message:Message):
     successs = []
     successs.clear()
     status = await message.reply('Processing')
+    filename = message.text.split()[-1]
+    if not filename.endswith(".txt"):
+        filename = f"{filename}.txt"
     if '-f' in message.text:
         if message.reply_to_message: 
             x = Users.all_user()
@@ -24,8 +27,10 @@ async def bot_broadcast(bot:Client, message:Message):
                     await asyncio.sleep(2)
                     await status.edit(f'**Sent** `{len(successs)}` **broadcast**`....`')
                 except:
-                    pass    
-            await status.edit(f'**Total Broadcast Sent** : `{len(successs)}`')     
+                    pass
+            with open(filename, "w") as file:
+                json.dump(successs, file)
+            await status.edit(f'**Total Broadcast Sent** : `{len(successs)}`\n\nBroadcast ID : `{filename}`')
         else:
             await status.edit('Heyy Reply Message Tag Please')
     elif '-c' in message.text:
@@ -33,17 +38,54 @@ async def bot_broadcast(bot:Client, message:Message):
             x = Users.all_user()
             for a in x:
                 try:
-                    x = await message.reply_to_message.copy(a) 
-                    successs.append(a)
+                    x = await message.reply_to_message.copy(a)
+                    successs.append((a, x.id))
                     await asyncio.sleep(2)
                     await status.edit(f'**Sent** `{len(successs)}` **broadcast**`....`')
                 except:
                     pass    
-            await status.edit(f'**Total Broadcast Sent** : `{len(successs)}`')     
+            with open(filename, "w") as file:
+                json.dump(successs, file)
+            await status.edit(f'**Total Broadcast Sent** : `{len(successs)}`\n\nBroadcast ID : `{filename}`')
         else:
             await status.edit('Heyy Reply Message Tag Please')
     else:
         await status.edit('**Use Flags Please**\n**-f** - `To broadcast with quote`\n**-c** - `To broadcast without quote`')
+    text = f"#BROADCAST"
+    text += f"\n\nID - `{filename}`"
+    await Client.send_message(LOG_CHANNEL, text)
+    await Client.send_document(
+                LOG_CHANNEL,
+                filename,
+                caption=filename,
+            )
+    await Client.send_document(
+                message.from_user.id,
+                filename,
+                caption=filename,
+            )
+
+@Client.on_message(filters.command('rmbroadcast', '/'))
+async def rmbroadcast(bot:Client, message:Message):
+    try:
+        filename = message.text.split()[-1]
+    except:
+        return
+    if not filename.endswith(".txt"):
+        filename = f"{filename}.txt"
+    try:
+        with open(FILENAME, "r") as file:
+            stored_list = json.load(file)
+    except Exception as e:
+        return await message.reply_text(f"Error Occured!\n\n{e}")
+    for item, key in stored_list:
+        await app.delete_messages(item, key)
+    
+    await message.reply_text("Done.", quote=True)
+    text = f"#RM-BROADCAST"
+    text += f"\n\nID - `{filename}`"
+    await app.send_message(LOG_CHANNEL, text)
+    
 
 @Client.on_message(filters.command('m', '/'))
 async def checkuser(bot:Client, message:Message):
@@ -67,14 +109,6 @@ async def checkuser(bot:Client, message:Message):
         else:
             continue
     await message.reply(subscriptions)
-
-"""
-@Client.on_message(filters.command('bcast', '/'))
-async def broadcast_del(bot:Client, message:Message):
-    if message.from_user.id not in [1135084367, 720518864]:
-        return
-"""
-
 
 
 @Client.on_message(filters.command('upl', '/'))

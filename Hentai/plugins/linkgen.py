@@ -1,7 +1,7 @@
 import string, random 
 from telethon import events, Button 
-from Hentai import tsoheru, BOT_USERNAME
-from Hentai.database.client import Users, PremiumCustom 
+from Hentai import tsoheru, BOT_USERNAME, LOG_CHANNEL
+from Hentai.database.client import Users, PremiumCustom
 
 
 def id_generator(size=6, chars= string.digits):
@@ -17,6 +17,11 @@ async def updatelink(event):
     custom = text[3]
     PremiumCustom.update(id, old, custom)    
     await event.reply('Updated New Link', buttons=[[Button.url('New Link', url=old)]])
+    text = f"#UPDATE-LINK"
+    text += f"\n\nID - `{id}`"
+    text += f"\nOldlink - `{old}`"
+    text += f"\nNewlink - `{custom}`"
+    await tsoheru.send_message(LOG_CHANNEL, text)
 
 @tsoheru.on(events.NewMessage(incoming=True, pattern="/custom"))     
 async def link_custom(event): 
@@ -36,4 +41,9 @@ async def link_custom(event):
         return
     PremiumCustom.add(id_gen, old, custom, channel)
     text = f'[Custom Link](https://t.me/{BOT_USERNAME}?start=custom_{channel}{id_gen})\n'
-    await event.reply(f'[Custom Link](https://t.me/{BOT_USERNAME}?start=custom_{channel}_{id_gen})', buttons=[[Button.url('Custom Link', url=f'https://t.me/{BOT_USERNAME}?start=custom_{channel}_{id_gen}')]])  
+    await event.reply(f'[Custom Link](https://t.me/{BOT_USERNAME}?start=custom_{channel}_{id_gen})', buttons=[[Button.url('Custom Link', url=f'https://t.me/{BOT_USERNAME}?start=custom_{channel}_{id_gen}')]])
+    text = f"#NEW-LINK #{channel.upper()}"
+    text += f"\n\nID - `{id_gen}`"
+    text += f"\nOldlink - `{old}`"
+    text += f"\nNewlink - `{custom}`"
+    await tsoheru.send_message(LOG_CHANNEL, text)

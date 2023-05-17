@@ -9,7 +9,7 @@ import sys, traceback, io, asyncio, os
 async def update(event):
     if Users.is_sudo(event.sender_id) is False:
         return
-    msg = await event.reply_text("Pulling changes with latest commits...")
+    msg = await event.reply("Pulling changes with latest commits...")
     os.system("git pull")
     LOGGER(__name__).info("Bot Updated with latest commits. Restarting now..")
     os.execl(sys.executable, sys.executable, "-m", "Hentai")

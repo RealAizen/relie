@@ -16,8 +16,8 @@ async def ban(_, message):
         if uwu == False:
             await message.reply_text("Hehe, Good luck with that.", quote=True)
         await message.reply_text("Done.", quote=True)
-    except:
-        await message.reply_text("Some error occurred. Probably that user doesn't exist.", quote=True)
+    except Exception as e:
+        await message.reply_text(f"Some error occurred. Probably that user doesn't exist.\n\n`{e}`", quote=True)
     
     text = f"#BANNED!"
     text += f"\n\nID - `{user_id}`"

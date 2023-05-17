@@ -27,7 +27,7 @@ def unban(userid):
 
 def banned():
     x = []
-    y = banned.find_all({})  
+    y = banned.find()  
     for a in y:
         x.append(a['user'])
     return x

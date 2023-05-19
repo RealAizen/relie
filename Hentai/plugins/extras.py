@@ -4,7 +4,7 @@ from Hentai.utils.string_constant import PRICING_TEXT
 from Hentai.database.client import Users, ban, unban
 
 @app.on_message(filters.text & filters.command("ban"))
-async def ban(_, message):
+async def bannnnn(_, message):
     if Users.is_sudo(message.from_user.id) is False:
         return
     if message.reply_to_message:

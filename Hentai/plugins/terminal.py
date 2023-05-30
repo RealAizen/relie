@@ -11,8 +11,8 @@ async def update(event):
         return
     msg = await event.reply("Pulling changes with latest commits...")
     os.system("git pull")
-    LOGGER(__name__).info("Bot Updated with latest commits. Restarting now..")
     os.execl(sys.executable, sys.executable, "-m", "Hentai")
+
 
 @tsoheru.on(events.NewMessage(incoming=True, pattern="/eval"))     
 async def eval(event):

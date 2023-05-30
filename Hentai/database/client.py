@@ -106,58 +106,34 @@ class Users:
     def total_premium():
         return users.count_documents({'premium':True})
     def premiumuser():
-        x = users.find({'premium':True})
         plist = []
-        plist.clear()
-        for i in x:
-            id = i['user']
-            try:
-                platinum_expire_date = i['platinum']
-            except:
-                continue
-            brazzers_expire_date = i['brazzers']
-            onlyfans_expire_date = i['onlyfans']
-            desi_expire_date = i['desi']
-            japanese_expire_date = i['japanese']
-            anime_expire_date = i['anime']
-            hentai_expire_date = i['hentai']
-            movies_expire_date = i['movies']
+        for user in users.find({'premium': True}):
+            user_id = user['user']
+            premium_services = [
+                ('platinum', 'Platinum'),
+                ('movies', 'Movies'),
+                ('brazzers', 'Brazzers'),
+                ('onlyfans', 'Onlyfans'),
+                ('desi', 'Desi'),
+                ('japanese', 'Japanese'),
+                ('anime', 'Anime'),
+                ('hentai', 'Hentai'),
+            ]
+            user_status = []
             
-            dhentai_expire_date = i['3dhentai']
-            cosplay_expire_date = i['cosplay']
-            milfs_expire_date = i['milfs']
-            stepfamily_expire_date = i['stepfamily']
-            celebrity_expire_date = i['celebrity']
-            sexcam_expire_date = i['sexcam']
+            for service, label in premium_services:
+                expire_date = user.get(service)
+                if expire_date:
+                    expiring = str(Generate.expirein(expire_date)).split(',', 1)[0].strip()
+                    user_status.append(f'{label} {expiring}')
             
-            textt = f"[{id}](tg://user?id={id}) -"
-            if not platinum_expire_date==None:
-                expiring = str(Generate.expirein(platinum_expire_date)).split(',', 1)[0].strip()
-                textt+= (" Platinum " + expiring + ",")
-            if not movies_expire_date==None:
-                expiring = str(Generate.expirein(movies_expire_date)).split(',', 1)[0].strip()
-                textt+= (" Movies " + expiring + ",")
-            if not brazzers_expire_date==None:
-                expiring = str(Generate.expirein(brazzers_expire_date)).split(',', 1)[0].strip()
-                textt+= (" Brazzers " + expiring + ",")
-            if not onlyfans_expire_date==None:
-                expiring = str(Generate.expirein(onlyfans_expire_date)).split(',', 1)[0].strip()
-                textt+= (" Onlyfans " + expiring + ",")
-            if not desi_expire_date==None:
-                expiring = str(Generate.expirein(desi_expire_date)).split(',', 1)[0].strip()
-                textt+= (" Desi " + expiring + ",")
-            if not japanese_expire_date==None:
-                expiring = str(Generate.expirein(japanese_expire_date)).split(',', 1)[0].strip()
-                textt+= (" Japanese " + expiring + ",")
-            if not anime_expire_date==None:
-                expiring = str(Generate.expirein(anime_expire_date)).split(',', 1)[0].strip()
-                textt+= (" Anime " + expiring + ",")
-            if not hentai_expire_date==None:
-                expiring = str(Generate.expirein(hentai_expire_date)).split(',', 1)[0].strip()
-                textt+= (" Hentai " + expiring + ",")
-            
-            plist.append(textt)
-        return plist 
+            if user_status:
+                status_text = ', '.join(user_status)
+                textt = f"[{user_id}](tg://user?id={user_id}) - {status_text}"
+                plist.append(textt)
+        
+        return plist
+
     def all_user():
         x = []
         y = users.find({'is_sudo':False})  

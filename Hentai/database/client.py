@@ -85,7 +85,13 @@ class Users:
              'hentai': None, 
              'anime': None,
              'movies': None,
-             'premium':False}
+             'premium':False,
+             '3dhentai': None,
+             'cosplay': None,
+             'stepfamily': None,
+             'milfs': None,
+             'celebrity': None,
+             'sexcam': None}
             )
         return True 
     def is_premium(user_id):
@@ -116,6 +122,13 @@ class Users:
             anime_expire_date = i['anime']
             hentai_expire_date = i['hentai']
             movies_expire_date = i['movies']
+            
+            dhentai_expire_date = i['3dhentai']
+            cosplay_expire_date = i['cosplay']
+            milfs_expire_date = i['milfs']
+            stepfamily_expire_date = i['stepfamily']
+            celebrity_expire_date = i['celebrity']
+            sexcam_expire_date = i['sexcam']
             
             textt = f"[{id}](tg://user?id={id}) -"
             if not platinum_expire_date==None:

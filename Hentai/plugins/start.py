@@ -136,6 +136,7 @@ async def start(event):
                 return
         else:
             link = PremiumCustom.find(id, False)
+            print(link)
             btn = [[Button.url('Your Link', url=link), Button.url('How To Open?', url='https://t.me/How_To_Download_Hentai_Porn/')], [Button.inline('Premium Buy', 'penquriy')]]          
             await event.reply('Your Link, \nWant No Ads? **Buy Our Premium Subscription**', buttons=btn)
             return 

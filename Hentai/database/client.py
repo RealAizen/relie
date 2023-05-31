@@ -118,6 +118,12 @@ class Users:
                 ('japanese', 'Japanese'),
                 ('anime', 'Anime'),
                 ('hentai', 'Hentai'),
+                ('3dhentai', '3Dhentai'),
+                ('cosplay', 'Cosplay'),
+                ('stepfamily', 'Stepfamily'),
+                ('milfs', 'Milfs'),
+                ('celebrity', 'Celebrity'),
+                ('sexcam', 'Sexcam'),
             ]
             user_status = []
             
@@ -150,11 +156,14 @@ class Users:
     def check_premium(userid, taaipe):
         x = users.find_one({'user':int(userid)})
         if x is not None:
-            if x[taaipe] is not None:
-                return True
-            else:
-                if x["platinum"] is not None:
+            try:
+                if x[taaipe] is not None:
                     return True
+                else:
+                    if x["platinum"] is not None:
+                        return True
+                    return False
+            except:
                 return False
         else:
             return False

@@ -4,7 +4,7 @@ from Hentai import tsoheru, BOT_USERNAME, LOG_CHANNEL
 from Hentai.database.client import Users, PremiumCustom
 
 
-def id_generator(size=6, chars= string.digits):
+def id_generator(size=9, chars= string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
 
 @tsoheru.on(events.NewMessage(incoming=True, pattern="/updatelink"))     
@@ -27,7 +27,7 @@ async def updatelink(event):
 async def link_custom(event): 
     if Users.is_sudo(event.sender_id) is False:
         return
-    link_types = ["anime", "hentai", "brazzers", "japanese", "onlyfans", "desi", "movies"]
+    link_types = ["anime", "hentai", "brazzers", "japanese", "onlyfans", "desi", "movies", "3dhentai", "cosplay", "stepfamily", "milfs", "celebrity"]
     try:
         msg = event.message.message.split(' ', 3)
         channel = msg[1].strip().lower()

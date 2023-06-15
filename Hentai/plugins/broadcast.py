@@ -75,11 +75,12 @@ async def rmbroadcast(bot:Client, message:Message):
         filename = f"{filename}.txt"
     try:
         with open(filename, "r") as file:
-            stored_list = json.load(file)
+            stored_list = json.loads(file)
     except Exception as e:
-        return await message.reply_text(f"Error Occured!\n\n{e}")
+        await message.reply_text(f"Error Occured!\n\n{e}")
+        return
     for item, key in stored_list:
-        await app.delete_messages(item, key)
+        await Client.delete_messages(item, key)
     
     await message.reply_text("Done.", quote=True)
     text = f"#RM-BROADCAST"

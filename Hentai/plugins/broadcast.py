@@ -74,8 +74,8 @@ async def rmbroadcast(bot:Client, message:Message):
     if not filename.endswith(".txt"):
         filename = f"{filename}.txt"
     try:
-        with open(filename, "r") as file:
-            stored_list = json.loads(file)
+        with open(filename, "rb") as file:
+            stored_list = json.load(file)
     except Exception as e:
         await message.reply_text(f"Error Occured!\n\n{e}")
         return

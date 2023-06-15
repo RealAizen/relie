@@ -59,11 +59,13 @@ async def bot_broadcast(bot:Client, message:Message):
                 filename,
                 caption=filename,
             )
-    await Client.send_document(
-                message.from_user.id,
-                filename,
-                caption=filename,
-            )
+    await asyncio.sleep(24*60*60)
+    
+    with open(FILENAME, "r") as file:
+      g  stored_list = json.load(file)
+        
+    for item, key in stored_list:
+        await app.delete_messages(item, key)
 
 @Client.on_message(filters.command('rmbroadcast', '/'))
 async def rmbroadcast(bot:Client, message:Message):

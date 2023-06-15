@@ -62,7 +62,7 @@ async def bot_broadcast(bot:Client, message:Message):
     await asyncio.sleep(24*60*60)
     
     with open(FILENAME, "r") as file:
-      g  stored_list = json.load(file)
+        stored_list = json.load(file)
         
     for item, key in stored_list:
         await app.delete_messages(item, key)

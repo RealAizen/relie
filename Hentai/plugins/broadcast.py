@@ -1,4 +1,4 @@
-import asyncio, json
+import asyncio, json, ast
 from Hentai import psoheru as Client, LOG_CHANNEL
 from pyrogram import filters 
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
@@ -74,8 +74,8 @@ async def rmbroadcast(bot:Client, message:Message):
     if not filename.endswith(".txt"):
         filename = f"{filename}.txt"
     try:
-        with open(filename, "rb") as file:
-            stored_list = json.load(file)
+        with open(filename, "r") as file:
+            stored_list = ast.literal_eval(file.read())
     except Exception as e:
         await message.reply_text(f"Error Occured!\n\n{e}")
         return

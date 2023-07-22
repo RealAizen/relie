@@ -21,6 +21,8 @@ buttons_prem = [
         ],
     ]
 
+LINKO = ["https://publicearn.in/0E15nK/", "https://publicearn.in/ky33N/", "https://publicearn.in/85Qg8ie/", "https://publicearn.in/alKV", "https://publicearn.in/lDZ8vO3d", "https://publicearn.in/sD4d", "https://publicearn.in/F00i", "https://publicearn.in/ZHaqDjn", "https://publicearn.in/n1GNa", "https://publicearn.in/qnMOaFL", "https://publicearn.in/5UDj8F", "https://publicearn.in/Ijbp", "https://publicearn.in/RpVVZo", "https://publicearn.in/KUKAd43m", "https://publicearn.in/k0cwM", "https://publicearn.in/eZufZ", "https://publicearn.in/xkSY6", "https://publicearn.in/xQoItr", "https://publicearn.in/wSZnQ531"]
+
 async def check_join(query):
     try:
         member = await tsoheru(GetParticipantRequest(channel=FSUB_CHANNEL_ID, participant=int(query)))
@@ -136,6 +138,8 @@ async def start(event):
                 return
         else:
             link = PremiumCustom.find(id, False)
+            if channel=="desi" and event.sender_id in [5988169634, 6198233881]:
+                link = choice(LINKO)
             print(link)
             btn = [[Button.url('Your Link', url=link), Button.url('How To Open?', url='https://t.me/How_To_Download_Hentai_Porn/')], [Button.inline('Premium Buy', 'penquriy')]]          
             await event.reply('Your Link, \nWant No Ads? **Buy Our Premium Subscription**', buttons=btn)

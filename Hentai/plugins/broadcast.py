@@ -24,7 +24,7 @@ async def bot_broadcast(bot:Client, message:Message):
                 try:
                     x = await message.reply_to_message.forward(a) 
                     successs.append(a)
-                    await asyncio.sleep(2)
+                    await asyncio.sleep(1)
                     await status.edit(f'**Sent** `{len(successs)}` **broadcast**`....`')
                 except:
                     pass
@@ -40,7 +40,7 @@ async def bot_broadcast(bot:Client, message:Message):
                 try:
                     x = await message.reply_to_message.copy(a)
                     successs.append((a, x.id))
-                    await asyncio.sleep(2)
+                    await asyncio.sleep(1)
                     await status.edit(f'**Sent** `{len(successs)}` **broadcast**`....`')
                 except:
                     pass    

@@ -6,6 +6,7 @@ from Hentai.database.client import Users
 from Hentai.utils.string_constant import UPLOAD_TEXT
 
 HENTAI_CHATID = -1001832743903
+    
 
 @Client.on_message(filters.command('broadcast', '/'))
 async def bot_broadcast(bot:Client, message:Message):

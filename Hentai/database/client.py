@@ -93,7 +93,10 @@ class Users:
              'celebrity': None,
              'sexcam': None}
             )
-        return True 
+        return True
+    def remove(userid):
+        users.delete_one({"user": int(userid)})
+        return True
     def is_premium(user_id):
         x = users.find_one({'user':int(user_id)})
         return x['premium']

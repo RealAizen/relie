@@ -25,7 +25,7 @@ async def bannnnn(_, message):
 
 
 @app.on_message(filters.text & filters.command("unban"))
-async def unban(_, message):
+async def unbamn(_, message):
     if Users.is_sudo(message.from_user.id) is False:
         return
     if message.reply_to_message:

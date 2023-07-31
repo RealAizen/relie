@@ -20,9 +20,7 @@ def ban(userid):
     return True 
 
 def unban(userid):
-    if Users.is_sudo(userid) is True:
-        return False
-    bannedb.delete_many({'user':int(userid)})
+    bannedb.delete_one({'user':int(userid)})
     return True 
 
 def banned():

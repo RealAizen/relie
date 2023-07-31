@@ -8,21 +8,6 @@ from Hentai.utils.string_constant import UPLOAD_TEXT
 HENTAI_CHATID = -1001832743903
 
 
-/eval from Hentai.database.client import Users
-from Hentai import psoheru as app
-import asyncio
-
-users = Users.all_user()
-
-for i in users:
-    messages = await app.get_chat_history(i)
-    
-    for message in messages:
-        if message.photo:
-            await app.delete_messages(chat_id, message.message_id)
-        await asyncio.sleep(0.3)
-
-
 @Client.on_message(filters.command('broadcast', '/'))
 async def bot_broadcast(bot:Client, message:Message):
     if Users.is_sudo(message.from_user.id) is False:

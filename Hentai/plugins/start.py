@@ -129,10 +129,12 @@ async def start(event):
                 await event.reply(f"Total Clicks: `{PremiumCustom.total_count(id)}` "+'**Check Below Button To Download**', buttons=btn)
             else: 
                 link = PremiumCustom.find(id, False)
-                x = Users.remium(event.sender_id, channel.strip())
+                Users.remium(event.sender_id, channel.strip())
+                await tsoheru.send_message(LOG_CHANNEL, f"/remium {event.sender_id} {channel}")
                 if not x==True:
                     print(f"cannot remium {event.sender_id} for {channel}")
                 await event.reply('Your Premium Expired Kindly Renew Your Subscription. & To Continue Without Renewal Open Link Again')
+                
                 if platinum is True:
                     Users.remium(event.sender_id, "platinum")
                 return
@@ -141,7 +143,7 @@ async def start(event):
             if channel=="desi" and event.sender_id in [5988169634, 6198233881]:
                 link = choice(LINKO)
             print(link)
-            btn = [[Button.url('Your Link', url=link), Button.url('How To Open?', url='https://t.me/How_To_Download_Hentai_Porn/')], [Button.inline('Premium Buy', 'penquriy')]]          
+            btn = [[Button.url('Your Link', url=link)], [Button.inline('Premium Buy', 'penquriy')]]          
             await event.reply('Your Link, \nWant No Ads? **Buy Our Premium Subscription**', buttons=btn)
             return 
     else:

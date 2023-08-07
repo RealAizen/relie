@@ -89,6 +89,8 @@ class Users:
              'stepfamily': None,
              'milfs': None,
              'celebrity': None,
+             'animemovies': None,
+             'mms': None,
              'sexcam': None}
             )
         return True
@@ -124,6 +126,8 @@ class Users:
                 ('stepfamily', 'Stepfamily'),
                 ('milfs', 'Milfs'),
                 ('celebrity', 'Celebrity'),
+                ('animemovies', 'Animemovies'),
+                ('mms', 'Mms')
                 ('sexcam', 'Sexcam'),
             ]
             user_status = []

@@ -62,7 +62,7 @@ async def bot_broadcast(bot:Client, message:Message):
             )
     await asyncio.sleep(24*60*60)
     
-    with open(FILENAME, "r") as file:
+    with open(filename, "r") as file:
         stored_list = json.load(file)
         
     for item, key in stored_list:
